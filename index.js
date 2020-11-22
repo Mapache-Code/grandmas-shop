@@ -97,7 +97,9 @@ if (cartStorage) {
 
 for (let i = 0; i < addProduct.length; i++) {
   addProduct[i].addEventListener("click", () => {
-    const image = addProduct[i].parentNode.children[1].getAttribute("src");
+    const image = addProduct[
+      i
+    ].parentNode.parentNode.children[0].children[1].getAttribute("src");
     const product =
       addProduct[i].parentNode.parentNode.children[1].children[0].children[0]
         .innerHTML;
