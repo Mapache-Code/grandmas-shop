@@ -1,0 +1,296 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+* {
+  font-family: "Kaushan Script", cursive;
+}
+
+main {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(249, 148, 215, 0.5),
+      rgba(80, 80, 50, 0.5)
+    ),
+    url("./images/i13.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+  height: calc(100vh - 66px);
+}
+
+/* MODAL */
+.modal {
+  @apply w-full h-screen fixed flex justify-center items-center z-50;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__none {
+  display: none;
+}
+
+.modal--close {
+  @apply absolute top-0 right-0 py-2 px-4 text-white text-4xl;
+}
+
+.modal--box {
+  @apply bg-white rounded overflow-hidden;
+  height: 420px;
+}
+
+.modal--image {
+  @apply h-full object-contain object-center;
+}
+
+/* ABOUT */
+.about {
+  height: 600px;
+}
+
+.about--detail {
+  width: 600px;
+}
+
+.about--image {
+  width: 540px;
+  height: 405px;
+}
+
+.about--text {
+  width: 420px;
+}
+
+.about--boxImage {
+  width: 540px;
+  height: 405px;
+  position: relative;
+}
+
+.about--box {
+  @apply absolute border-8 border-pink-600;
+  width: 550px;
+  height: 420px;
+  transition: all 0.5s linear;
+  transform: translate(-120px, -40px);
+  z-index: -1;
+}
+
+.about--boxImage:hover > .about--box {
+  transform: translate(-6px, -8px);
+}
+
+/* NAV */
+.nav--item {
+  @apply mx-4 text-pink-600 text-2xl;
+}
+
+.nav--item:hover {
+  @apply text-black;
+}
+
+/* STORE */
+.store--category {
+  @apply mx-6 p-2 border border-black rounded;
+}
+
+.store--category:hover {
+  @apply text-pink-600 bg-black border-black;
+}
+
+/* PRODUCTS STORE */
+.product--card {
+  @apply w-1/4 m-4 rounded shadow-xl overflow-hidden cursor-pointer;
+}
+
+.product--detail {
+  @apply bg-white flex justify-between items-center p-6;
+}
+
+.product--boxImage {
+  /*  width: 380px; */
+  height: 285px;
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
+.product--boxImage > img {
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+  position: absolute;
+  transition: all 0.5s linear;
+}
+
+.boxImage--icon {
+  @apply bg-blue-600 z-10 flex items-center justify-center absolute bottom-0 right-0 rounded-tl text-white text-2xl font-bold;
+  width: 60px;
+  height: 60px;
+  transition: all 0.5s linear;
+  transform: translate(60px, 60px);
+}
+
+.product--boxImage:hover > img {
+  transform: scale(1.4);
+}
+
+.product--boxImage:hover > .boxImage--icon {
+  transform: translate(0, 0);
+}
+
+@media screen and (min-width: 320px) {
+  /* MODAL */
+  .modal {
+    padding: 1em;
+  }
+
+  /* NAV */
+  header div span {
+    font-size: 14px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .home--cart {
+    display: none;
+  }
+
+  /* MAIN */
+  main {
+    text-align: center;
+  }
+
+  main h1 {
+    margin-bottom: 1em;
+  }
+
+  /* ABOUT */
+  .about {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 4em 0;
+    height: unset;
+  }
+
+  .about--detail {
+    width: 280px;
+    margin-right: 1em;
+  }
+
+  .about--text {
+    width: unset;
+    font-size: 14px;
+  }
+
+  .about--boxImage,
+  .about--image {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+  }
+
+  .about--box {
+    display: none;
+  }
+
+  /* STORE */
+  .store h2 {
+    margin-bottom: 0.4em;
+  }
+
+  .button {
+    margin: 1em;
+  }
+
+  .searcher {
+    width: 60%;
+  }
+
+  .product--card {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* NAV */
+  nav {
+    display: initial;
+  }
+
+  .home--cart {
+    display: initial;
+  }
+
+  .nav--item {
+    font-size: 1em;
+  }
+
+  /* ABOUT */
+  .about {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .about--detail {
+    width: 340px;
+    margin-right: 1em;
+  }
+
+  .about--text {
+    width: unset;
+    font-size: 14px;
+  }
+
+  .about--boxImage,
+  .about--image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .about--box {
+    display: none;
+  }
+
+  /* STORE */
+  .searcher {
+    width: 60%;
+  }
+
+  .product--card {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .about {
+    justify-content: space-around;
+  }
+
+  .about--detail,
+  .about--text {
+    width: 420px;
+  }
+
+  .about--boxImage,
+  .about--image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .about--box {
+    display: block;
+    width: 310px;
+    height: 310px;
+  }
+}
+
+.activado > i {
+  color: red !important;
+}
